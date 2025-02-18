@@ -1,3 +1,5 @@
+###### PART 1 #######
+
 ''' 
 🎯 Functions Challenge: Library Management System
 -------------------------------------------------
@@ -78,3 +80,37 @@ add_book(ux_library, "Ducker", "Quincy Quack")
 
 def count_books(library): 
     return len(library)
+
+
+
+###### PART 2 #######
+
+#1️⃣ Reverse a String
+#Write a function reverse_string(text) that takes a string and returns it reversed.
+
+def reverse_string(text):
+    return text[::-1]
+
+reverse_string('hello')
+
+#2️⃣ Count Vowels
+#Write a function count_vowels(text) that returns the number of vowels (a, e, i, o, u) in a given string.
+
+def count_vowels(text):
+    vowels = "aeiouAEIOU"
+    count = 0
+    for letter in text:
+        if letter in vowels:
+            count += 1
+    return count
+count_vowels("Hello aIeO")
+
+#3️⃣ Find the Maximum Number
+#Write a function find_max(num1, num2, num3) that returns the largest of three numbers.
+
+def find_max(*nums):
+    max_number = float("-inf")
+    for num in nums: 
+        if isinstance(num, (int, float)) and num > max_number:
+            max_number = num
+    return max_number
