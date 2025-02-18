@@ -25,7 +25,10 @@ add_book(ux_library, "Ducker", "Quincy Quack")
 # - If the book does not exist, print "Book not found!".
 
 def remove_book(library, title):
-    del library[title]
+    if title in library:
+        del library[title]
+    else:
+        print("Book not found!")
 remove_book(ux_library, "Ducker")
 
 # 3️⃣ Function: find_author
@@ -37,7 +40,7 @@ remove_book(ux_library, "Ducker")
 
 def find_author(library, title):
     author = library.get(title)
-    if(author):
+    if author:
         return author
     else:
         return "Book not found"
@@ -59,3 +62,19 @@ list_books(ux_library)
 - Allow books to have multiple authors (Hint: store authors as a list).
 - Add a function count_books(library) that returns the total number of books.
 '''
+def add_book(library, title, author):
+    if title in library:
+        print("Book already exists!")
+        if author in library[title]:
+            print("This author already exists for this book!")
+        else:
+            library[title].append(author)     
+    else:
+        library[title] = [author]   
+
+    return library
+
+add_book(ux_library, "Ducker", "Quincy Quack")
+
+def count_books(library): 
+    return len(library)
